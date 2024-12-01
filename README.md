@@ -58,7 +58,7 @@ lib/
 │   ├── widgets/     
 │       # Widgets réutilisables
 
-`\`
+```
 
 ---
 
