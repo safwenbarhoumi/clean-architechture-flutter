@@ -30,7 +30,7 @@ L'architecture propre est basée sur les principes de Robert C. Martin, qui enco
 
 ## 🗂️ Structure du projet
 
-\`\`\`plaintext
+```plaintext
 
 lib/
 ├── core/            
@@ -58,7 +58,7 @@ lib/
 │   ├── widgets/     
 │       # Widgets réutilisables
 
-\`\`\`
+`\`
 
 ---
 
