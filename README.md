@@ -74,21 +74,21 @@ Avant de commencer, assurez-vous d'avoir installé :
 ## 🚀 Installation
 
 1. Clonez le repository :
-   \`\`\`bash
-   git clone https://github.com/votre-utilisateur/nom-du-repository.git
-   \`\`\`
+   ``` 
+   git clone https://github.com/safwenbarhoumi/clean-architechture-flutter
+   ```
 2. Accédez au dossier du projet :
-   \`\`\`bash
-   cd nom-du-repository
-   \`\`\`
+   ```
+   cd clean-architechture-flutter
+   ```
 3. Installez les dépendances :
-   \`\`\`bash
+   ```
    flutter pub get
-   \`\`\`
+   ```
 4. Lancez l'application :
-   \`\`\`bash
+   ```
    flutter run
-   \`\`\`
+   ```
 
 ---
 
