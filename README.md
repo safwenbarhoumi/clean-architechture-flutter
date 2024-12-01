@@ -31,19 +31,33 @@ L'architecture propre est basée sur les principes de Robert C. Martin, qui enco
 ## 🗂️ Structure du projet
 
 \`\`\`plaintext
+
 lib/
-├── core/            # Classes communes (e.g., erreurs, constants)
-├── data/            # Sources de données (API, local, etc.)
-│   ├── models/      # Modèles de données
-│   ├── repositories/ # Implémentations des repositories
-├── domain/          # Logique métier
-│   ├── entities/    # Entités métier
-│   ├── usecases/    # Cas d'utilisation
-│   ├── repositories/ # Abstractions des repositories
-├── presentation/    # Widgets, pages, et gestion de l'état
-│   ├── bloc/        # Gestion de l'état avec BLoC/Cubit
-│   ├── pages/       # Pages de l'application
-│   ├── widgets/     # Widgets réutilisables
+├── core/            
+│   # Classes communes (e.g., erreurs, constants)
+├── data/            
+│   # Sources de données (API, local, etc.)
+│   ├── models/      
+│   │   # Modèles de données
+│   ├── repositories/ 
+│       # Implémentations des repositories
+├── domain/          
+│   # Logique métier
+│   ├── entities/    
+│   │   # Entités métier
+│   ├── usecases/    
+│   │   # Cas d'utilisation
+│   ├── repositories/ 
+│       # Abstractions des repositories
+├── presentation/    
+│   # Widgets, pages, et gestion de l'état
+│   ├── bloc/        
+│   │   # Gestion de l'état avec BLoC/Cubit
+│   ├── pages/       
+│   │   # Pages de l'application
+│   ├── widgets/     
+│       # Widgets réutilisables
+
 \`\`\`
 
 ---
