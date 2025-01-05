@@ -1,0 +1,74 @@
+# Note: Each level in a YAML file is indented by 2 spaces
+name: Flutter CI/CD
+
+on:
+  # Trigger the workflow on push to main branch or pull request to main branch
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  flutter_job:
+    # Use macOS for compatibility with both Android and iOS builds
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: "3.19.6" # Match your Flutter version
+
+      # Install project dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Verify code formatting
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      # Set up Java JDK for Gradle
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: "21" # Match your local Java version
+
+      # Clean the build environment
+      - name: Clean build
+        run: flutter clean
+
+      # Build the APK
+      - name: Build APK
+        run: flutter build apk
+
+  monitoring:
+    runs-on: ubuntu-latest
+    needs: flutter_job
+    steps:
+      - name: Start Prometheus
+        run: |
+          docker run -d \
+            --name prometheus \
+            -p 9090:9090 \
+            prom/prometheus
+
+      - name: Start Grafana
+        run: |
+          docker run -d \
+            --name grafana \
+            -p 3000:3000 \
+            grafana/grafana
+
+      - name: Start Alertmanager
+        run: |
+          docker run -d \
+          --name alertmanager \
+          -p 9093:9093 \
+          prom/alertmanager
