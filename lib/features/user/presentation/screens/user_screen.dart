@@ -15,15 +15,16 @@ class UserScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          body: state is GetUserSuccessfully
-              ? ListView(
-                  children: [
-                    const LandingWidget(),
-                    UserData(user: state.user),
-                    const CustomSearchBar(),
-                  ],
-                )
-              : state is GetUserFailure
+          body:
+              state is GetUserSuccessfully
+                  ? ListView(
+                    children: [
+                      const LandingWidget(),
+                      UserData(user: state.user),
+                      const CustomSearchBar(),
+                    ],
+                  )
+                  : state is GetUserFailure
                   ? Text(state.errMessage)
                   : const Center(child: CircularProgressIndicator()),
         );

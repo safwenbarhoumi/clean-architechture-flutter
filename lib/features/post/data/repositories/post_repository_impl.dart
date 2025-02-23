@@ -13,13 +13,15 @@ class PostRepositoryImpl extends PostRepository {
   final NetworkInfo networkInfo;
   final PostRemoteDataSource remoteDataSource;
   final PostLocalDataSource localDataSource;
-  PostRepositoryImpl(
-      {required this.remoteDataSource,
-      required this.localDataSource,
-      required this.networkInfo});
+  PostRepositoryImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
+  });
   @override
-  Future<Either<Failure, PostEntity>> getPost(
-      {required PostParams params}) async {
+  Future<Either<Failure, PostEntity>> getPost({
+    required PostParams params,
+  }) async {
     if (await networkInfo.isConnected!) {
       try {
         final remotePost = await remoteDataSource.getPost(params);

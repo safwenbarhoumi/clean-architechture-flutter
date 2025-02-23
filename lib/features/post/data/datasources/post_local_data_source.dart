@@ -10,12 +10,7 @@ class PostLocalDataSource {
 
   cachePost(PostModel? postToCache) {
     if (postToCache != null) {
-      cache.saveData(
-        key: key,
-        value: json.encode(
-          postToCache.toJson(),
-        ),
-      );
+      cache.saveData(key: key, value: json.encode(postToCache.toJson()));
     } else {
       throw CacheExeption(errorMessage: "No Internet Connection");
     }

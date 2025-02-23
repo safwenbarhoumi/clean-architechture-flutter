@@ -11,12 +11,7 @@ class UserLocalDataSource {
 
   cacheUser(UserModel? userToCache) {
     if (userToCache != null) {
-      cache.saveData(
-        key: key,
-        value: json.encode(
-          userToCache.toJson(),
-        ),
-      );
+      cache.saveData(key: key, value: json.encode(userToCache.toJson()));
     } else {
       throw CacheExeption(errorMessage: "No Internet Connection");
     }

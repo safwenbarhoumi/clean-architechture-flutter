@@ -18,14 +18,11 @@ class UserCubit extends Cubit<UserState> {
     emit(GetUserLoading());
     final failureOrUser = await GetUser(
       repository: UserRepositoryImpl(
-          remoteDataSource: UserRemoteDataSource(api: DioConsumer(dio: Dio())),
-          localDataSource: UserLocalDataSource(cache: CacheHelper()),
-          networkInfo: NetworkInfoImpl(DataConnectionChecker())),
-    ).call(
-      params: UserParams(
-        id: id.toString(),
+        remoteDataSource: UserRemoteDataSource(api: DioConsumer(dio: Dio())),
+        localDataSource: UserLocalDataSource(cache: CacheHelper()),
+        networkInfo: NetworkInfoImpl(DataConnectionChecker()),
       ),
-    );
+    ).call(params: UserParams(id: id.toString()));
 
     failureOrUser.fold(
       (failure) => emit(GetUserFailure(errMessage: failure.errMessage)),

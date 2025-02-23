@@ -10,12 +10,14 @@ class DioConsumer extends ApiConsumer {
     dio.options.baseUrl = EndPoints.baserUrl;
   }
 
-//!POST
+  //!POST
   @override
-  Future post(String path,
-      {dynamic data,
-      Map<String, dynamic>? queryParameters,
-      bool isFormData = false}) async {
+  Future post(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool isFormData = false,
+  }) async {
     try {
       dio.post(
         path,
@@ -27,23 +29,32 @@ class DioConsumer extends ApiConsumer {
     }
   }
 
-//!GET
+  //!GET
   @override
-  Future get(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) async {
+  Future get(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
-      var res =
-          await dio.get(path, data: data, queryParameters: queryParameters);
+      var res = await dio.get(
+        path,
+        data: data,
+        queryParameters: queryParameters,
+      );
       return res.data;
     } on DioException catch (e) {
       handleDioException(e);
     }
   }
 
-//!DELETE
+  //!DELETE
   @override
-  Future delete(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) async {
+  Future delete(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       var res = await dio.delete(
         path,
@@ -56,12 +67,14 @@ class DioConsumer extends ApiConsumer {
     }
   }
 
-//!PATCH
+  //!PATCH
   @override
-  Future patch(String path,
-      {dynamic data,
-      Map<String, dynamic>? queryParameters,
-      bool isFormData = false}) async {
+  Future patch(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool isFormData = false,
+  }) async {
     try {
       var res = await dio.patch(
         path,

@@ -4,9 +4,7 @@ import 'package:happytech_clean_architecture/features/user/presentation/cubit/us
 import 'package:happytech_clean_architecture/features/user/presentation/widgets/get_user_button.dart';
 
 class CustomSearchBar extends StatefulWidget {
-  const CustomSearchBar({
-    super.key,
-  });
+  const CustomSearchBar({super.key});
 
   @override
   State<CustomSearchBar> createState() => _CustomSearchBarState();
@@ -31,9 +29,11 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
           divisions: 9,
           label: "${id.toInt()}",
         ),
-        GetUserButton(onPressed: () {
-          BlocProvider.of<UserCubit>(context).eitherFailureOrUser(id.toInt());
-        }),
+        GetUserButton(
+          onPressed: () {
+            BlocProvider.of<UserCubit>(context).eitherFailureOrUser(id.toInt());
+          },
+        ),
       ],
     );
   }

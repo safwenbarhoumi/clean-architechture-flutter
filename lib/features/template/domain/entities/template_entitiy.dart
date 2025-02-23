@@ -1,6 +1,3 @@
-
 class TemplateEntity {
-
-
   TemplateEntity();
 }

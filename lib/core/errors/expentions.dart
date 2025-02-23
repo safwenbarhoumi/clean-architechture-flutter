@@ -6,6 +6,7 @@ class ServerException implements Exception {
   final ErrorModel errorModel;
   ServerException(this.errorModel);
 }
+
 //!CacheExeption
 class CacheExeption implements Exception {
   final String errorMessage;
@@ -97,15 +98,18 @@ handleDioException(DioException e) {
         case 504: // Bad request
 
           throw BadResponseException(
-              ErrorModel(status: 504, errorMessage: e.response!.data));
+            ErrorModel(status: 504, errorMessage: e.response!.data),
+          );
       }
 
     case DioExceptionType.cancel:
       throw CancelException(
-          ErrorModel(errorMessage: e.toString(), status: 500));
+        ErrorModel(errorMessage: e.toString(), status: 500),
+      );
 
     case DioExceptionType.unknown:
       throw UnknownException(
-          ErrorModel(errorMessage: e.toString(), status: 500));
+        ErrorModel(errorMessage: e.toString(), status: 500),
+      );
   }
 }

@@ -10,8 +10,9 @@ class GetTemplate {
 
   GetTemplate({required this.repository});
 
-  Future<Either<Failure, TemplateEntity>> call(
-      {required TemplateParams params}) {
+  Future<Either<Failure, TemplateEntity>> call({
+    required TemplateParams params,
+  }) {
     return repository.getTemplate(params: params);
   }
 }

@@ -5,4 +5,4 @@ import 'package:happytech_clean_architecture/features/user/domain/entities/user_
 
 abstract class UserRepository {
   Future<Either<Failure, UserEntity>> getUser({required UserParams params});
-} 
+}

@@ -13,13 +13,15 @@ class TemplateRepositoryImpl extends TemplateRepository {
   final NetworkInfo networkInfo;
   final TemplateRemoteDataSource remoteDataSource;
   final TemplateLocalDataSource localDataSource;
-  TemplateRepositoryImpl(
-      {required this.remoteDataSource,
-      required this.localDataSource,
-      required this.networkInfo});
+  TemplateRepositoryImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
+  });
   @override
-  Future<Either<Failure, TemplateEntity>> getTemplate(
-      {required TemplateParams params}) async {
+  Future<Either<Failure, TemplateEntity>> getTemplate({
+    required TemplateParams params,
+  }) async {
     if (await networkInfo.isConnected!) {
       try {
         final remoteTemplate = await remoteDataSource.getTemplate(params);

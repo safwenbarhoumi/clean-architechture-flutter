@@ -9,11 +9,8 @@ class GetUserButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: ElevatedButton(
         onPressed: onPressed,
-        child: const Text(
-          "Get User",
-        ),
+        child: const Text("Get User"),
       ),
     );
   }
 }
-

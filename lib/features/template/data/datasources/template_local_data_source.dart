@@ -10,12 +10,7 @@ class TemplateLocalDataSource {
 
   cacheTemplate(TemplateModel? templateToCache) {
     if (templateToCache != null) {
-      cache.saveData(
-        key: key,
-        value: json.encode(
-          templateToCache.toJson(),
-        ),
-      );
+      cache.saveData(key: key, value: json.encode(templateToCache.toJson()));
     } else {
       throw CacheExeption(errorMessage: "No Internet Connection");
     }

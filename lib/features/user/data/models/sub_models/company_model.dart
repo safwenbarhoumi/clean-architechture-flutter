@@ -19,12 +19,6 @@ class CompanyModel {
     );
   }
   Map<String, dynamic> toJson() {
-    return {
-      ApiKey.name: name,
-      ApiKey.catchPhrase: catchPhrase,
-      ApiKey.bs: bs,
-    };
+    return {ApiKey.name: name, ApiKey.catchPhrase: catchPhrase, ApiKey.bs: bs};
   }
 }
-
-

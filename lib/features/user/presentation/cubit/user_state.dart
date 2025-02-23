@@ -3,6 +3,7 @@ import 'package:happytech_clean_architecture/features/user/domain/entities/user_
 class UserState {}
 
 final class UserInitial extends UserState {}
+
 final class UpdateSLider extends UserState {}
 
 final class GetUserSuccessfully extends UserState {
