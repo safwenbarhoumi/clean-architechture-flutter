@@ -1,5 +1,5 @@
-cat <<EOF > README.md
 # Flutter Clean Architecture Project
+[![Flutter CI/CD](https://github.com/safwenbarhoumi/clean-architechture-flutter/actions/workflows/main.yml/badge.svg)](https://github.com/safwenbarhoumi/clean-architechture-flutter/actions/workflows/main.yml)
 
 Ce repository contient un projet Flutter structuré selon les principes de **Clean Architecture**, qui favorise la séparation des responsabilités et la maintenabilité du code.
 
